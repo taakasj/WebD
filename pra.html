@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title> Jquery </title>
+    <script type="text/javascript" src="jquery.min.js"> </script>
+    <style type="text/css">
+        #circle {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(183, 90, 119);
+            border-radius: 50%;
+            border: 10px double;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="circle"> </div>
+    <script type="text/javascript">
+        function getcol(){
+            l = '0123456789ABCDEF'.split('');
+            col = '#';
+            for(var i =0;i<6;i++) {
+                col += l[Math.floor(Math.random()*16)];
+            }
+            return col;
+        }
+        $("div").hover(function(){
+            var h = Math.random()*400;
+            var w = Math.random()*400;
+            $(this).animate({width:w + "px", height:h + "px"},1000,function(){
+                $(this).css("background-color",getcol());   
+                $(this).css("border-color",getcol());
+            });
+        });
+    </script>
+</body>
+
+</html>
